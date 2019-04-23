@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Water Rocket Launcher</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="//cdn.rawgit.com/hilios/jQuery.countdown/2.2.0/dist/jquery.countdown.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+  
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+
+  <style type="text/css">
+
+    #slider { margin: 10px; };
+
+    body {
+      padding-top: 50px;
+    }
+    .starter-template {
+      padding: 40px 15px;
+      text-align: center;
+    }
+    .panel {
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    #clock {
+      margin-bottom: 0;
+    }
+    div.chart_div table {
+      width: auto;
+      margin: 0 auto !important;
+      display: inline-block;
+    }
+    
+    div.container4 {
+      height: 10em;
+      position: relative; 
+    }
+    
+    div.container4 p {
+      margin: 0;
+      background: yellow;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%); 
+    }
+  </style>
+</head>
+
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Project name</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="starter-template">
+
+
+    
+    <h1>Water Rocket Launcher V_1.0</h1>
+    <p class="lead">Arm, Fuel, Launch</p>
+    
+    <div class="panel panel-default" data-toggle="tooltip" data-placement="top" title="Counter">
+      
+      <div class="panel-body">  
+            {{ counter | safe }}    
+      </div>
+    
+    </div>
+
+
+     <div class="panel panel-default" data-toggle="tooltip" data-placement="top" title="Guages">
+      
+      <div class="panel-body">        
+         <div id="chart_div" style="width: 400px; height: 120px;"></div> 
+      </div>
+    
+    </div>
+
+<div class="panel-body">  
+    
+  <label for="amount">Add Fuel Amount:</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold; text-align: left;">
+  <div id="slider-range-max"></div>
+  </div>
+    
+
+     
+    
+
+      <button type="button" class="btn btn-primary {{arm}}" id="btn-arm">
+        <i class="glyphicon glyphicon-repeat"></i>
+        Arm
+      </button>
+
+      <button type="button" class="btn btn-primary {{unarm}}" id="btn-unarm">
+        <i class="glyphicon glyphicon-repeat"></i>
+        Unarm
+      </button>
+
+      <button type="button" class="btn btn-primary {{fuel}}" id="btn-fuel">
+        <i class="glyphicon glyphicon-repeat"></i>
+        Fuel
+      </button>
+
+       <button type="button" class="btn btn-primary {{launch}}" id="btn-launch">
+        <i class="glyphicon glyphicon-repeat"></i>
+        Launch
+      </button>   
+
+      <button type="button" class="btn btn-primary {{abort}}" id="btn-abort">
+        <i class="glyphicon glyphicon-repeat"></i>
+        Abort
+      </button>
+
+    
+
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+
+  // Turn on Bootstrap
+  $('[data-toggle="tooltip"]').tooltip();
+
+  // 15 days from now!
+  function get15dayFromNow() {
+    return new Date(new Date().valueOf() + 10 * 1000);
+    
+  }
+
+   var $clock = $('#clock');
+  
+$('#clock').countdown(get15dayFromNow())
+.on('update.countdown', function(event) {
+  var format = '%S';
+  
+  $(this).html(event.strftime(format));
+})
+.on('finish.countdown', function(event) {
+  //$(this).html('This offer has expired!')
+   // .parent().addClass('disabled');
+location.href="http://108.74.158.146/begin";
+
+});
+
+
+  $('#btn-unarm').click(function() {
+    location.href="http://108.74.158.146/";
+  });
+
+  $('#btn-abort').click(function() {
+    location.href="http://108.74.158.146/";
+  });
+
+  $('#btn-arm').click(function() {
+    location.href="http://108.74.158.146/arm";
+  });
+
+  $('#btn-fuel').click(function() {
+   //var val = $("#slider").slider("value");
+   //var n = val.toString();
+   
+   val = 10
+   
+   //var val = $("#slider").slider("option", "value");
+   //var val = $('#slider').slider("option", "value");
+   var uri = "http://108.74.158.146/begin_fuel/" + val;
+   //console.log(uri);	
+   
+
+   //location.href="http://108.74.158.146/begin_fuel";
+   location.href=uri;
+ 
+  });
+
+  $('#btn-launch').click(function() {
+    location.href="http://108.74.158.146/launch";
+  });
+
+  $('#btn-pause').click(function() {
+    $clock.countdown('pause');
+  });
+
+  $('#btn-resume').click(function() {
+    $clock.countdown('resume');
+  });
+
+</script>
+
+
+
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Water', 80],
+          ['Air', 55],
+        ]);
+
+        var options = {
+          width: 400, height: 120,
+          redFrom: 90, redTo: 100,
+          yellowFrom:75, yellowTo: 90,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+        setInterval(function() {
+          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+          chart.draw(data, options);
+        }, 13000);
+        setInterval(function() {
+          data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+          chart.draw(data, options);
+        }, 5000);
+        
+      }
+    </script>
+
+
+
+
+
+<script>
+
+$( function() {
+    $( "#slider-range-max" ).slider({
+      range: "max",
+      min: 1,
+      max: 10,
+      value: 5,
+      slide: function( event, ui ) {
+        $( "#amount" ).val( ui.value );
+      }
+    });
+    $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
+  
+  
+  } );
+
+  
+  </script>
+
+</script>
+ 
+</body>
+</html>
