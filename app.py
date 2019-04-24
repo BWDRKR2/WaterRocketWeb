@@ -34,12 +34,6 @@ def begin_fuel(amount):
 def launch():
     return render_template('main.html', fueling=" ", counter='<div class="lead", id="clock"></div>', arm="disabled", unarm="disabled", fuel="disabled", launch="disabled", abort="active")
 	
-@app.route('/unarm/', methods=['GET'])
-def unarm():
-    r = requests.get('http://10.68.54.45:5000/unarm')	
-    status=r.status_code
-    return render_template('unarm.html')
-
 @app.route('/', methods=['GET'])
 def home():
     return render_template('main.html', fueling=" ", counter="<h4>Arm To Launch  </h4>", arm="active", unarm="disabled", fuel="disabled", launch="disabled", abort="disabled")
