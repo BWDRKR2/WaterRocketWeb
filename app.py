@@ -44,8 +44,6 @@ def count():
 
 @app.route('/launch/', methods=['GET'])
 def launch():
-    #r = requests.get('http://10.68.54.45:5000/launch')	
-    #status=r.status_code
     return render_template('main.html', fueling=" ", counter='<div class="lead", id="clock"></div>', arm="disabled", unarm="disabled", fuel="disabled", launch="disabled", abort="active")
 	
 @app.route('/unarm/', methods=['GET'])
