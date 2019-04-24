@@ -1,6 +1,7 @@
 # We need to import request to access the details of the POST request
 # and render_template, to render our templates (form and response)
 # we'll use url_for to get some URLs for the app on the templates
+
 from flask import Flask, render_template, request, url_for
 import requests
 
@@ -52,10 +53,6 @@ def unarm():
     r = requests.get('http://10.68.54.45:5000/unarm')	
     status=r.status_code
     return render_template('unarm.html')
-
-@app.route('/dan/', methods=['GET'])
-def dan():
-    return render_template('slider.html')
 
 @app.route('/', methods=['GET'])
 def home():
