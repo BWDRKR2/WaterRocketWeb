@@ -2,8 +2,6 @@
 # and render_template, to render our templates (form and response)
 # we'll use url_for to get some URLs for the app on the templates
 
-
-
 from flask import Flask, render_template, request, url_for
 import requests
 
