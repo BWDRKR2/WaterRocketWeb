@@ -18,12 +18,6 @@ def begin():
 def arm():
     return render_template('main.html', fueling=" ", counter="<h4>Fuel To Launch </h4>" , arm="disabled", unarm="active", fuel="active", launch="disabled" , abort="disabled")
 
-@app.route('/abort/', methods=['GET'])
-def abort():
-    r = requests.get('http://10.68.54.45:5000/abort')	
-    status=r.status_code
-    return render_template('abort.html')
-
 @app.route('/fueled/<amount>', methods=['GET'])
 def begin_fuel(amount):
     r = requests.get('http://10.68.54.45:5000/begin_fuel/'+ amount)	
