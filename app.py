@@ -30,12 +30,6 @@ def begin_fuel(amount):
     status=r.status_code
     return render_template('main.html', fueling=" ", counter="<h4>Fueled        </h4>", arm="disabled", unarm="disabled", fuel="disabled", launch="active", abort="active")
 
-@app.route('/end_fuel/', methods=['GET'])
-def end_fuel():
-    r = requests.get('http://10.68.54.45:5000/end_fuel')	
-    status=r.status_code
-    return render_template('dan.html')
-
 @app.route('/launch/', methods=['GET'])
 def launch():
     return render_template('main.html', fueling=" ", counter='<div class="lead", id="clock"></div>', arm="disabled", unarm="disabled", fuel="disabled", launch="disabled", abort="active")
