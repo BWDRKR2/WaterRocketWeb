@@ -38,10 +38,6 @@ def end_fuel():
     status=r.status_code
     return render_template('dan.html')
 
-@app.route('/count/', methods=['GET'])
-def count():
-    return render_template('count.html')
-
 @app.route('/launch/', methods=['GET'])
 def launch():
     return render_template('main.html', fueling=" ", counter='<div class="lead", id="clock"></div>', arm="disabled", unarm="disabled", fuel="disabled", launch="disabled", abort="active")
