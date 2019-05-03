@@ -145,7 +145,7 @@
       </button>
 
 <div class="custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="defaultUnchecked"  {{camera}} >
+    <input type="checkbox" class="custom-control-input" id="camera_on"  {{camera}} >
      <label class="custom-control-label" for="defaultUnchecked" {{camera}}  >Camera On </label>
     </div>   
 
@@ -224,6 +224,12 @@ location.href="http://10.68.54.4/liftoff";
   });
 
   $('#btn-launch').click(function() {
+        camera_flag = "0";
+ 	if (camera_on.checked) {
+     	 camera_flag = "1";
+	 
+    }
+    alert(camera_flag)
     location.href="http://10.68.54.4/launch";
   });
 
