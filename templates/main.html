@@ -206,30 +206,16 @@ location.href="http://10.68.54.4/liftoff";
   });
 
   $('#btn-fuel').click(function() {
-   //var val = $("#slider").slider("value");
-   //var n = val.toString();
-   var val=document.getElementById("amount").value;
-   //val = 10
-   
-   //var val = $("#slider").slider("option", "value");
-   //var val = $('#slider').slider("option", "value");
-   var uri = "http://10.68.54.4/fueled/" + val;
-   //var uri = "http://10.68.54.4/begin_fuel/" + val;
-   //console.log(uri);	
-   
-
-   //location.href="http://10.68.54.4/begin_fuel";
-   location.href=uri;
- 
+    var val=document.getElementById("amount").value;
+    var uri = "http://10.68.54.4/fueled/" + val;
+    location.href=uri;
   });
 
   $('#btn-launch').click(function() {
         camera_flag = "0";
  	if (camera_on.checked) {
-     	 camera_flag = "1";
-	 
-    }
-    alert(camera_flag)
+     	 camera_on_flag = "1";
+   }
     location.href="http://10.68.54.4/launch";
   });
 
