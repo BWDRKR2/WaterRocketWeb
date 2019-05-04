@@ -29,7 +29,7 @@ def begin_fuel(amount):
 
 @app.route('/launch/', methods=['GET'])
 def launch():
-    return render_template('main.html', camera="visibility: hidden", fueling=" ", counter='<div class="lead", id="clock"></div>', arm="disabled", unarm="disabled", fuel="disabled", launch="disabled", abort="active")
+    return render_template('main.html', camera=" ", fueling=" ", counter='<div class="lead", id="clock"></div>', arm="disabled", unarm="disabled", fuel="disabled", launch="disabled", abort="active")
 	
 @app.route('/', methods=['GET'])
 def home():
